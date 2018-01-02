@@ -21,10 +21,10 @@ import file_manager.views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^fir/label/account/add_account[/]$', account_manager.views.AddAccountView.as_view()),
-    url(r'^fir/label/account/add_originalFile[/]$', file_manager.views.AddOriginalFileView.as_view()),
+    url(r'^sean/label/account/add_account[/]$', account_manager.views.AddAccountView.as_view()),
+    url(r'^sean/label/account/add_originalFile[/]$', file_manager.views.AddOriginalFileView.as_view()),
 ]
 
 urlpatterns += [
-    url(r'^fir/label/auth[/]', include('rest_framework.urls'))
+    url(r'^sean/label/auth[/]', include('rest_framework.urls'))
 ]

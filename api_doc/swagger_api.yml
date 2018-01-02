@@ -1,4 +1,4 @@
-basePath: /fir/label
+basePath: /sean/label
 info:
   description: This package contains basic ner modules for internal use.
   title: Fir label tool
@@ -6,7 +6,7 @@ info:
 produces:
   - "application/json"
 paths:
-  /fir/label/task/assign_task:
+  /sean/label/task/assign_task:
     post:
       description: 'Execute SQL command to assgin labelling task.'
       parameters:
@@ -32,7 +32,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/task/add_new_task:
+  /sean/label/task/add_new_task:
     post:
       description: 'Add new labeling task.'
       parameters:
@@ -73,7 +73,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/task/add_update_task:
+  /sean/label/task/add_update_task:
     post:
       description: 'Add a new record, then set previous record task to depreciated.'
       parameters:
@@ -119,7 +119,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/task/update_task:
+  /sean/label/task/update_task:
     post:
       description: 'Add a new task, then set previous taks status to depreciated.'
       parameters:
@@ -160,7 +160,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/task/delete_task:
+  /sean/label/task/delete_task:
     post:
       description: 'Update status of task, no DELETE command in database.'
       parameters:
@@ -181,7 +181,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/task/list_tasks:
+  /sean/label/task/list_tasks:
     post:
       description: 'Execute SQL command.'
       # Parameters vary depends on demand.
@@ -197,7 +197,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/files/add_originalFile:
+  /sean/label/files/add_originalFile:
     post:
       description: 'Execute SQL commands to upload file.'
       parameters:
@@ -233,7 +233,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/files/show_label_result:
+  /sean/label/files/show_label_result:
     post:
       description: 'Show label result.'
       parameters:
@@ -259,7 +259,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/files/show_label_result_with_original_text:
+  /sean/label/files/show_label_result_with_original_text:
     post:
       description: 'Show label result.'
       parameters:
@@ -285,7 +285,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/files/download_label_result:
+  /sean/label/files/download_label_result:
     post:
       description: 'Download label result.'
       parameters:
@@ -307,7 +307,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/files/delete_label_result:
+  /sean/label/files/delete_label_result:
     post:
       description: 'Update status, no DELETE command in SQL'
       parameters:
@@ -328,7 +328,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/files/list_label_result:
+  /sean/label/files/list_label_result:
     post:
       description: 'Execute relevant SQL command.'
       #parameters vary depends on demands.
@@ -344,7 +344,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/account/add_user:
+  /sean/label/account/add_user:
     post:
       description: 'Execute relevant SQL command to add new user.'
       parameters:
@@ -385,7 +385,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/files/update_user:
+  /sean/label/files/update_user:
     post:
       description: 'Execute relevant SQL command to update user'
       parameters:
@@ -421,7 +421,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/files/delete_user:
+  /sean/label/files/delete_user:
     post:
       description: 'Execute relevant SQL command to update user status. No DELETE command in SQL'
       parameters:
@@ -447,7 +447,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/files/list_users:
+  /sean/label/files/list_users:
     post:
       description: 'List users by execute SQL command'
       # parameters depends on demands
@@ -463,7 +463,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/task_category/add_task_category:
+  /sean/label/task_category/add_task_category:
     post:
       description: 'Adding task category'
       parameters:
@@ -499,7 +499,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/task_catrgory/update_task_category:
+  /sean/label/task_catrgory/update_task_category:
     post:
       description: 'Update task category'
       parameters:
@@ -535,7 +535,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/task_category/delete_task_category:
+  /sean/label/task_category/delete_task_category:
     post:
       description: 'Update status of task cateogry, no DELETE in DB'
       parameters:
@@ -556,7 +556,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/task_category/list_task_category:
+  /sean/label/task_category/list_task_category:
     post:
       description: 'Execute SQL command to list task categories.'
       parameters:
@@ -577,7 +577,7 @@ paths:
         default:
           description: Unexpected error
       summary: ''
-  /fir/label/label_tool/show_label_result:
+  /sean/label/label_tool/show_label_result:
     post:
       description: 'Execute SQL to show result.'
       parameter:

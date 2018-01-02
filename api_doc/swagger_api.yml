@@ -1,0 +1,619 @@
+basePath: /fir/label
+info:
+  description: This package contains basic ner modules for internal use.
+  title: Fir label tool
+  version: 0.0.1
+produces:
+  - "application/json"
+paths:
+  /fir/label/task/assign_task:
+    post:
+      description: 'Execute SQL command to assgin labelling task.'
+      parameters:
+      - description: File name to be label.
+        in: query
+        name: taskName
+        required: true
+        type: string
+      - description: Labeler username.
+        in: query
+        name: username
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: Not Found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/task/add_new_task:
+    post:
+      description: 'Add new labeling task.'
+      parameters:
+      - description: Task Name.
+        in: query
+        name: taskName
+        required: true
+        type: string
+      - description: Labeled file name or name of file to label.
+        in: query
+        name: fileName
+        required: true
+        type: string
+      - description: Task created date.
+        in: query
+        name: taskCreatedDate
+        required: true
+        type: string
+      - description: Task type.
+        in: query
+        name: taskType
+        required: true
+        type: string
+      - description: Labeler username.
+        in: query
+        name: username
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: Not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/task/add_update_task:
+    post:
+      description: 'Add a new record, then set previous record task to depreciated.'
+      parameters:
+      - description: Task name.
+        in: query
+        name: taskName
+        required: true
+        type: string
+      - description: Label file name.
+        in: query
+        name: fileName
+        required: true
+        type: string
+      - description: Task created time.
+        in: query
+        name: taskCreatedDate
+        required: true
+        type: string
+      - description: Task type.
+        in: query
+        name: taskType
+        required: true
+        type: string
+      - description: labeler ID.
+        in: query
+        name: labelerId
+        required: true
+        type: string
+      - description: previous label file name.
+        in: query
+        name: previousLabelFileName
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: Not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/task/update_task:
+    post:
+      description: 'Add a new task, then set previous taks status to depreciated.'
+      parameters:
+      - description: Task name
+        in: query
+        name: taskName
+        required: true
+        type: string
+      - description: File name to label or name of labeled file
+        in: query
+        name: fileName
+        required: true
+        type: string
+      - description: Task update date
+        in: query
+        name: taskUpdatedDate
+        required: true
+        type: string
+      - description: Task type
+        in: query
+        name: taksType
+        required: true
+        type: string
+      - description: Labeler username
+        in: query
+        name: username
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/task/delete_task:
+    post:
+      description: 'Update status of task, no DELETE command in database.'
+      parameters:
+      - description: Task name to delete.
+        in: query
+        name: taskName
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/task/list_tasks:
+    post:
+      description: 'Execute SQL command.'
+      # Parameters vary depends on demand.
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/files/add_originalFile:
+    post:
+      description: 'Execute SQL commands to upload file.'
+      parameters:
+      - description: upload files to label
+        in: query
+        name: fileName
+        required: true
+        type: string
+      - description: file uploaded date
+        in: query
+        name: fileUploadedDate
+        required: true
+        type: string
+      - description: ID of file uploader
+        in: query
+        name: uploaderId
+        required: true
+        type: string
+      - description: label result file content
+        in: query
+        name: resultFileContent
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/files/show_label_result:
+    post:
+      description: 'Show label result.'
+      parameters:
+      - description: user ID
+        in: query
+        name: userId
+        required: true
+        type: string
+      - description: label result file name.
+        in: query
+        name: resultFileName
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/files/show_label_result_with_original_text:
+    post:
+      description: 'Show label result.'
+      parameters:
+      - description: user ID
+        in: query
+        name: userId
+        required: true
+        type: string
+      - description: label result file name
+        in: query
+        name: resultFileName
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/files/download_label_result:
+    post:
+      description: 'Download label result.'
+      parameters:
+      - description: request time.
+        in: query
+        name: requestTime
+        required: true
+        type: string
+      # parameters depends on demands
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/files/delete_label_result:
+    post:
+      description: 'Update status, no DELETE command in SQL'
+      parameters:
+      - description: label result name
+        in: query
+        name: labelResultName
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/files/list_label_result:
+    post:
+      description: 'Execute relevant SQL command.'
+      #parameters vary depends on demands.
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/account/add_user:
+    post:
+      description: 'Execute relevant SQL command to add new user.'
+      parameters:
+      - description: account name
+        in: query
+        name: accountName
+        required: true
+        type: string
+      - description: account email (optional)
+        in: query
+        name: accountEmail
+        required: false
+        type: string
+      - description: account phone number (optional)
+        in: query
+        name: accountPhoneNum
+        required: false
+        type: string
+      - description: account created time
+        in: query
+        name: accountCreatedTime
+        required: true
+        type: string
+      - description: account level
+        in: query
+        name: accountLevel
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/files/update_user:
+    post:
+      description: 'Execute relevant SQL command to update user'
+      parameters:
+      - description: account email (optional)
+        in: query
+        name: accountEmail
+        required: false
+        type: string
+      - description: account phone number (optional)
+        in: query
+        name: accountPhoneNum
+        required: false
+        type: string
+      - description: account level
+        in: query
+        name: accountLevel
+        required: true
+        type: string
+      - description: account update time
+        in: query
+        name: account update time
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/files/delete_user:
+    post:
+      description: 'Execute relevant SQL command to update user status. No DELETE command in SQL'
+      parameters:
+      - description: account ID
+        in: query
+        name: accountId
+        required: false
+        type: string
+      - description: account name
+        in: query
+        name: accountName
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/files/list_users:
+    post:
+      description: 'List users by execute SQL command'
+      # parameters depends on demands
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/task_category/add_task_category:
+    post:
+      description: 'Adding task category'
+      parameters:
+      - description: task category name
+        in: query
+        name: taskCategoryName
+        required: true
+        type: string
+      - description: task category create date time
+        in: query
+        name: taskCategoryCreateDate
+        required: false
+        type: string
+      - description: poperty of entity(name of entity type, label color, label shortcut etc.)
+        name: entityPoperty
+        in: query
+        required: false
+        type: string
+      - description: poperty of relation(name of relation type, relation color, relation shortcut etc. )
+        name: relationPoperty
+        in: query
+        required: false
+        type: string
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/task_catrgory/update_task_category:
+    post:
+      description: 'Update task category'
+      parameters:
+      - description: name of task category
+        in: query
+        name: taskCategoryName
+        required: true
+        type: string
+      - description: task update date time
+        in: query
+        name: taskUpdateDateTime
+        required: true
+        type: string
+      - description: poperty of entity(name of entity type, label color, label shortcut etc.)
+        name: entityPoperty
+        in: query
+        required: false
+        type: string
+      - description: poperty of relation(name of relation type, relation color, relation shortcut etc. )
+        name: relationPoperty
+        in: query
+        required: false
+        type: string
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/task_category/delete_task_category:
+    post:
+      description: 'Update status of task cateogry, no DELETE in DB'
+      parameters:
+      - description: name of task category
+        in: query
+        name: taskCategoryName
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/task_category/list_task_category:
+    post:
+      description: 'Execute SQL command to list task categories.'
+      parameters:
+      - description: select by different types.
+        in: query
+        name: conditions
+        required: true
+        type: string
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+  /fir/label/label_tool/show_label_result:
+    post:
+      description: 'Execute SQL to show result.'
+      parameter:
+      - description: task id
+        in: query
+        name: taskId
+        required: true
+        type: string
+      - description: labeler id
+        in: query
+        name: accountId
+        required: false
+        type: string
+      - description: labeler name
+        in: query
+        name: username
+        required: false
+        type: string
+      responses:
+        '200':
+          description: Successfully
+        '404':
+          description: reponse not found
+        '405':
+          description: Invalid input
+        '501':
+          description: Internal Error
+        default:
+          description: Unexpected error
+      summary: ''
+schemes:
+- https
+- http
+securityDefinitions:
+  api_key:
+    in: header
+    name: AUTHORIZATION
+    type: apiKey
+swagger: '2.0'
